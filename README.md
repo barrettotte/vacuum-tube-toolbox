@@ -1,6 +1,6 @@
-# vacuum-tube-utils
+# vacuum-tube-toolbox
 
-A set of utilities for messing around with vacuum tubes.
+An OpenSCAD library and KiCad designs to make tinkering with vacuum tubes easier.
 
 ## TODO - Initial Items
 
@@ -11,13 +11,22 @@ A set of utilities for messing around with vacuum tubes.
   - multiple
   - single
   - universal adapter
+- plugin coil
 
-## Pending Features
+## Features
+
+- TODO
+
+## Future Features
 
 - highly specific sockets for large tubes (CRT, xray, etc)
-- open source tube tester?
 - most sockets listed in - https://en.wikipedia.org/wiki/Tube_socket#Summary_of_base_details
   - (update missing list after initial implementation)
+
+## Development Dependencies
+
+- OpenSCAD 2021.01+ - `apt-get -y install openscad`
+- KiCad 6
 
 ## References
 
