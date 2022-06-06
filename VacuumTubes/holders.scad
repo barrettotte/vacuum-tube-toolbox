@@ -2,14 +2,13 @@ module tube_holder(
     rows=1,                //
     cols=1,                //
     socket_diameter=27.75, // 
-    socket_tolerance=0.1,  // tolerance for socket diameter
     socket_padding=5,      // padding around socket
     socket_depth=7,        // how far down the socket should cut into the holder
     height=10,             // height of holder
     edge_padding=2.5,      // extra padding from edge of holder to last socket slot
     fillet = 4             // fillet around holder
 ) {
-    socket_radius = (socket_diameter + socket_tolerance) / 2;
+    socket_radius = socket_diameter / 2;
     socket_slot = socket_diameter + (socket_padding * 2);
     slot_offset = edge_padding + (socket_slot / 2);
 

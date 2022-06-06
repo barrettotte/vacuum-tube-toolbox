@@ -19,8 +19,7 @@ An OpenSCAD library and KiCad designs to make tinkering with vacuum tubes easier
 
 ## Future Features
 
-- highly specific sockets for large tubes (CRT, xray, etc)
-- most sockets listed in - https://en.wikipedia.org/wiki/Tube_socket#Summary_of_base_details
+- attempt all tube sockets listed in - https://en.wikipedia.org/wiki/Tube_socket#Summary_of_base_details
   - (update missing list after initial implementation)
 
 ## Development Dependencies
