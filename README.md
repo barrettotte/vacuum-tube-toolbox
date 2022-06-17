@@ -2,23 +2,20 @@
 
 An OpenSCAD library and KiCad designs to make tinkering with vacuum tubes easier.
 
-## TODO - Initial Items
-
-- tube breadboard adapter (Kicad)
-- tube breakout board (Kicad)
-- sockets - for all tube types currently owned (minus large)
-- tube holders
-  - multiple
-  - single
-  - universal adapter
-- plugin coil
-
 ## Features
 
-- TODO
+- Tube holders (single/multiple)
+- Basic tube sockets
+- TODO: plugin coil
+- TODO: instructions for making a socket saver 
+  - with brass pins
+  - with spade connectors
+  - with copper sheet
 
 ## Future Features
 
+- Breakout boards for common tube types (KiCad)
+- Breadboard adapters for common tube types (KiCad)
 - attempt all tube sockets listed in - https://en.wikipedia.org/wiki/Tube_socket#Summary_of_base_details
   - (update missing list after initial implementation)
 
@@ -29,4 +26,4 @@ An OpenSCAD library and KiCad designs to make tinkering with vacuum tubes easier
 
 ## References
 
-- TODO
+- https://en.wikipedia.org/wiki/Tube_socket
