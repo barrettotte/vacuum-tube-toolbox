@@ -3,7 +3,7 @@ include <../VacuumTubes/holders.scad>
 $fs = 0.1;
 $fn = 60;
 
-tolerance = 0.1;
+tolerance = 0.25;
 
 socket_diameter = 27.75 + tolerance;
 socket_padding = 5;
