@@ -11,26 +11,28 @@ module plugin_coil(
 
     difference() {
         // core
-        rotate([0,0,30])
-            union() {
-                cylinder(d=core_diameter, h=height-wall_thickness, $fn=6);
-                translate([0,0,height-wall_thickness])
-                    cylinder(d=core_diameter+(wall_thickness/2), h=wall_thickness);
-            }
+        union() {
+            cylinder(d=core_diameter, h=height-wall_thickness);
+            translate([0,0,height-wall_thickness])
+                cylinder(d=core_diameter+(wall_thickness), h=wall_thickness);
+        }
 
         // cut out center
         translate([0,0,wall_thickness])
             cylinder(d=core_diameter-wall_thickness, h=height);
 
         // cut out pin slots
-        translate([pin_distance,0,0])
-            cylinder(d=pin_diameter, h=wall_thickness);
-        translate([0,pin_distance,0])
-            cylinder(d=pin_diameter, h=wall_thickness);
-        translate([-pin_distance,0,0])
-            cylinder(d=pin_diameter, h=wall_thickness);
-        translate([0,-pin_distance,0])
-            cylinder(d=pin_diameter, h=wall_thickness);
+        rotate([0,0,45])
+            union() {
+                translate([pin_distance,0,0])
+                    cylinder(d=pin_diameter, h=wall_thickness);
+                translate([0,pin_distance,0])
+                    cylinder(d=pin_diameter, h=wall_thickness);
+                translate([-pin_distance,0,0])
+                    cylinder(d=pin_diameter, h=wall_thickness);
+                translate([0,-pin_distance,0])
+                    cylinder(d=pin_diameter, h=wall_thickness);
+            }
         
         // cut out holes for wires
         for (z = [(wall_thickness + hole_diameter) : (hole_diameter * 2) : (height-wall_thickness-hole_diameter)]) {
