@@ -1,16 +1,15 @@
 # vacuum-tube-toolbox
 
-An OpenSCAD library and KiCad designs to make tinkering with vacuum tubes easier.
+An OpenSCAD library (and eventually KiCad designs) to make tinkering with vacuum tubes easier.
 
 ## Features
 
 - Tube holders (single/multiple)
 - Basic tube sockets
-- TODO: plugin coil
+- TODO: 4 pin plugin coil
 - TODO: instructions for making a socket saver 
   - with brass pins
   - with spade connectors
-  - with copper sheet
 
 ## Future Features
 
