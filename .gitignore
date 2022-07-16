@@ -1,3 +1,5 @@
 temp/
 *.log
 .vscode/
+
+*.gcode
