@@ -1,13 +1,13 @@
 # vacuum-tube-toolbox
 
-An OpenSCAD library (and eventually KiCad designs) to make tinkering with vacuum tubes easier.
+A work in progress OpenSCAD library (and eventually KiCad designs) to make tinkering with vacuum tubes easier.
 
 ## Features
 
 - Tube holders (single/multiple)
 - Basic tube sockets
 - TODO: 4 pin plugin coil
-- TODO: instructions for making a socket saver 
+- TODO: instructions for making a socket saver
 
 ## Hardware
 
@@ -23,17 +23,18 @@ I sourced from:
 - https://www.mill-max.com/products/new/swage-mount-pcb-pins-for-interconnect-applications
 - https://www.mill-max.com/search/tags/swage_mount?src=19
 
+I think that pins can be made by hand by working hollow 2-3mm brass tubing.
+This would probably be cheaper and more convenient, but I have not pursued this seriously yet.
+
 ## Future Features
 
 - Breakout boards for common tube types (KiCad)
 - Breadboard adapters for common tube types (KiCad)
-- attempt all tube sockets listed in - https://en.wikipedia.org/wiki/Tube_socket#Summary_of_base_details
-  - (update missing list after initial implementation)
+- attempt all basic socket types listed in - https://en.wikipedia.org/wiki/Tube_socket#Summary_of_base_details
 
 ## Development Dependencies
 
 - OpenSCAD 2021.01+ - `apt-get -y install openscad`
-- KiCad 6
 
 ## References
 
