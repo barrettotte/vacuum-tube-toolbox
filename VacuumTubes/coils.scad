@@ -1,14 +1,16 @@
+// Plugin coils for building old radio coil tubes
+
+// Base plugin coil
 module plugin_coil(
-    height=50,
-    wall_thickness=2.5,
-    bottom_thickness=3.5,
-    pin_count=4,
-    core_diameter=31.75,
-    pin_diameter=2.45,
-    wire_hole_diameter=1.75
+    height,            // height of tube coil
+    wall_thickness,    // thickness of tube
+    bottom_thickness,  // thickness between bottom and inside of tube
+    pin_count,         // number of pins
+    core_diameter,     // diameter of tube
+    pin_diameter,      // diameter of each pin
+    wire_hole_diameter // diameter of wire to pass through tube
 ) {
     core_radius = core_diameter/2;
-    pin_distance = pin_diameter*1.5;
 
     difference() {
         // core
@@ -20,7 +22,9 @@ module plugin_coil(
         
         // cut out pin holes
         for (i = [0:pin_count-1]) {
-            translate([sin(360*i/pin_count) * (pin_diameter * 2), cos(360*i/pin_count) * (pin_diameter * 2), 0])
+            pin_x = sin(360 * i / pin_count) * (pin_diameter * 2);
+            pin_y = cos(360 * i / pin_count) * (pin_diameter * 2);
+            translate([pin_x, pin_y, 0])
                 cylinder(d=pin_diameter, h=bottom_thickness);
         }
 
@@ -34,7 +38,9 @@ module plugin_coil(
 
         // cut out bottom wire holes
         for (i = [0:pin_count-1]) {
-            translate([sin(360*i/pin_count) * (wire_hole_diameter * 5.5), cos(360*i/pin_count) * (wire_hole_diameter * 5.5), 0])
+            pin_x = sin(360 * i / pin_count) * (wire_hole_diameter * 5.5);
+            pin_y = cos(360 * i / pin_count) * (wire_hole_diameter * 5.5);
+            translate([pin_x, pin_y, 0])
                 cylinder(d=wire_hole_diameter, h=bottom_thickness);
         }
     }

@@ -2,19 +2,17 @@
 
 A work in progress OpenSCAD library (and eventually KiCad designs) to make tinkering with vacuum tubes easier.
 
-## Features
+## Current Features
 
 - Tube holders (single/multiple)
-- Basic tube sockets
-- TODO: 4 pin plugin coil
-- TODO: instructions for making a socket saver
+- Plugin coils for building old radio coil tubes
 
 ## Hardware
 
 ### Pins
 
 Vacuum tube pins can be found by searching for "swage mount pins".
-This took me forever to find the right google search.
+This honestly took me forever to find the right google search.
 
 I sourced from:
 - https://www.digikey.com/en/products/detail/mill-max-manufacturing-corp/3104-2-00-15-00-00-08-0/436491
@@ -26,8 +24,12 @@ I sourced from:
 I think that pins can be made by hand by working hollow 2-3mm brass tubing.
 This would probably be cheaper and more convenient, but I have not pursued this seriously yet.
 
+For installing pins, print base with pin diameters around 0.05-0.10 mm smaller.
+Then, heat up pin with soldering iron and melt the pin into the base.
+
 ## Future Features
 
+- Socket savers with spade connectors, pins, and tubing.
 - Breakout boards for common tube types (KiCad)
 - Breadboard adapters for common tube types (KiCad)
 - attempt all basic socket types listed in - https://en.wikipedia.org/wiki/Tube_socket#Summary_of_base_details

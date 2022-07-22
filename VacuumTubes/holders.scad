@@ -1,14 +1,16 @@
+// Organization for displaying vacuum tubes.
+
+// Base tube holder
 module tube_holder(
-    rows=1,                //
-    cols=1,                //
-    socket_diameter=27.75, // 
-    socket_padding=5,      // padding around socket
-    socket_depth=7,        // how far down the socket should cut into the holder
-    height=10,             // height of holder
-    edge_padding=2.5,      // extra padding from edge of holder to last socket slot
-    fillet = 4             // fillet around holder
+    rows,            // rows of holder
+    cols,            // columns of holder
+    socket_diameter, // diameter of socket cutout
+    socket_padding,  // padding around socket
+    socket_depth,    // how far down the socket should cut into the holder
+    height,          // height of holder
+    edge_padding,    // extra padding from edge of holder to last socket slot
+    fillet           // fillet around holder
 ) {
-    socket_radius = socket_diameter / 2;
     socket_slot = socket_diameter + (socket_padding * 2);
     slot_offset = edge_padding + (socket_slot / 2);
 
@@ -31,8 +33,18 @@ module tube_holder(
                 socket_y = slot_offset + (j * socket_slot);
 
                 translate([socket_x, socket_y, height-socket_depth])
-                    cylinder(r=socket_radius, h=socket_depth);
+                    cylinder(d=socket_diameter, h=socket_depth);
             }
         }
     }
+}
+
+// Square tube holder
+module holder_square(length, socket_diameter, socket_padding, socket_depth, height, edge_padding, fillet) {
+    tube_holder(length, length, socket_diameter, socket_padding, socket_depth, height, edge_padding, fillet);
+}
+
+// Single tube holder
+module holder_single(socket_diameter, socket_padding, socket_depth, height, edge_padding, fillet) {
+    holder_square(1, socket_diameter, socket_padding, socket_depth, height, edge_padding, fillet);
 }

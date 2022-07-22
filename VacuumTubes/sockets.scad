@@ -1,22 +1,24 @@
-module tube_socket(
-    pin_count=8,           //
-    socket_diameter=27.75, //
-    pin_diameter=4.15,     //
-    center_diameter=8.65,  //
-    socket_height=15,      // 
-    notch_length=2,        // length of center notch
-    pin_offset=8.5         // pin offset from center
-) {
-    // TODO: default all parameters to a very common socket type
+// Sockets for various vacuum tubes
 
+// Base tube socket
+module tube_socket(
+    pin_count,       // number of pins
+    socket_diameter, // diameter of socket base
+    pin_diameter,    // diameter of each pin
+    center_diameter, // diameter of center hole in socket base
+    socket_height,   // height of socket base
+    notch_length,    // length of center notch
+    pin_offset       // pin offset from center
+) {
     // TODO: optional notch
     // TODO: optional override individual pin diameters (array)
+    // TODO: optional mount with screw holes
 
-    socket_radius = socket_diameter/2;     // radius of socket
-    center_radius = center_diameter/2;     // radius of center hole
-    pin_radius = pin_diameter/2;           // radius of each pin
-    notch_rotation = 90 + (180/pin_count); // notch rotation position
-    notch_offset = center_radius;          // notch offset from center
+    socket_radius = socket_diameter / 2;     // radius of socket base
+    center_radius = center_diameter / 2;     // radius of center hole
+    pin_radius = pin_diameter / 2;           // radius of each pin
+    notch_rotation = 90 + (180 / pin_count); // notch rotation position
+    notch_offset = center_radius;            // notch offset from center
 
     difference() {
         // socket base
@@ -40,4 +42,7 @@ module tube_socket(
     }
 }
 
-// TODO: socket_mount  (screw holes)
+// 8 pin socket
+module octal_socket(socket_diameter, pin_diameter, center_diameter, socket_height, notch_length, pin_offset) {
+    tube_socket(8, socket_diameter, pin_diameter, center_diameter, socket_height, notch_length, pin_offset);
+}
