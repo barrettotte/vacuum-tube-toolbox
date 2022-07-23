@@ -45,3 +45,37 @@ module plugin_coil(
         }
     }
 }
+
+// plugin coil with screw mounts
+module plugin_coil_mounted(
+    height,              //
+    wall_thickness,      //
+    bottom_thickness,    //
+    pin_count,           //
+    core_diameter,       //
+    pin_diameter,        //
+    wire_hole_diameter,  //
+    mount_hole_diameter, // diameter of mounting holes 
+    mount_width          // width of mounting base on each side
+) {
+    union() {
+        // base tube
+        plugin_coil(height, wall_thickness, bottom_thickness, pin_count, core_diameter, pin_diameter, wire_hole_diameter);
+
+        // mount
+        difference() {
+            linear_extrude(height=bottom_thickness)
+                resize([core_diameter+5, (2 * mount_width) + core_diameter])
+                    circle(d=1);
+            cylinder(d=core_diameter, h=bottom_thickness);
+
+            // holes
+            hole_x = (core_diameter/2) + mount_width - (2 * mount_hole_diameter);
+
+            translate([0, hole_x, 0])
+                cylinder(d=mount_hole_diameter, h=bottom_thickness);
+            translate([0, -hole_x, 0])
+                cylinder(d=mount_hole_diameter, h=bottom_thickness);
+        }
+    }
+}
