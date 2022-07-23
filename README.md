@@ -7,9 +7,11 @@ A work in progress OpenSCAD library (and eventually KiCad designs) to make tinke
 - Tube holders (single/multiple)
 - Plugin coils for building old radio coil tubes
 
-TODO: single tube holder
+![docs/holder-single.jpg](docs/holder-single.jpg)
 
-TODO: coil tube
+![docs/holder-single-tube.jpg](docs/holder-single-tube.jpg)
+
+![docs/plugin-coil.jpg](docs/plugin-coil.jpg)
 
 ## Hardware
 
