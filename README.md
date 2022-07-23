@@ -31,7 +31,7 @@ I sourced from:
 I think that pins can be made by hand by working hollow 2-3mm brass tubing.
 This would probably be cheaper and more convenient, but I have not pursued this seriously yet.
 
-For installing pins, print base with pin diameters around 0.05-0.10 mm smaller.
+For installing pins, print base with pin diameters around 0.05 mm smaller.
 Then, heat up pin with soldering iron and melt the pin into the base.
 
 ## Future Features
