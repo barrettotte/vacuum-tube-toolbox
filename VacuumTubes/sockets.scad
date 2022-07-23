@@ -2,23 +2,17 @@
 
 // Base tube socket
 module tube_socket(
-    pin_count,       // number of pins
-    socket_diameter, // diameter of socket base
-    pin_diameter,    // diameter of each pin
-    center_diameter, // diameter of center hole in socket base
-    socket_height,   // height of socket base
-    notch_length,    // length of center notch
-    pin_offset       // pin offset from center
-) {
-    // TODO: optional notch
-    // TODO: optional override individual pin diameters (array)
-    // TODO: optional mount with screw holes
+    pin_count,           // number of pins
+    pin_diameter,        // diameter of each pin
+    pin_offset,          // pin offset from center
+    socket_diameter,     // diameter of socket base
+    socket_height,       // height of socket base
 
+    center_diameter=0,   // diameter of center hole in socket base
+    notch_length=0       // length of center notch
+) {
     socket_radius = socket_diameter / 2;     // radius of socket base
-    center_radius = center_diameter / 2;     // radius of center hole
     pin_radius = pin_diameter / 2;           // radius of each pin
-    notch_rotation = 90 + (180 / pin_count); // notch rotation position
-    notch_offset = center_radius;            // notch offset from center
 
     difference() {
         // socket base
@@ -31,18 +25,35 @@ module tube_socket(
         }
 
         // center hole
-        rotate([0, 0, notch_rotation])
+        if (center_diameter > 0) {
+            center_radius = center_diameter / 2;     // radius of center hole
+            notch_rotation = 90 + (180 / pin_count); // notch rotation position
+
             union() {
-                // notch
-                translate([notch_offset, 0, 0])
-                    cube(size=[notch_length, notch_length, socket_height*2], center=true);
+                if (notch_length > 0) {
+                    rotate([0, 0, notch_rotation])
+                        translate([center_radius, 0, 0])
+                            cube(size=[notch_length, notch_length, socket_height*2], center=true);
+                }
                 // hole
                 cylinder(socket_height*2, center_radius, center_radius);
             }
+        }
     }
 }
 
 // 8 pin socket
-module octal_socket(socket_diameter, pin_diameter, center_diameter, socket_height, notch_length, pin_offset) {
-    tube_socket(8, socket_diameter, pin_diameter, center_diameter, socket_height, notch_length, pin_offset);
+module octal_socket(
+    pin_diameter, pin_offset, socket_diameter, socket_height, 
+    center_diameter=0, notch_length=0
+) {
+    tube_socket(8, pin_diameter, pin_offset, socket_diameter, socket_height, center_diameter, notch_length);
+}
+
+// 4 pin socket
+module tetral_socket(
+    pin_diameter, pin_offset, socket_diameter, socket_height, 
+    center_diameter=0, notch_length=0
+) {
+    tube_socket(4, pin_diameter, pin_offset, socket_diameter, socket_height, center_diameter, notch_length);
 }

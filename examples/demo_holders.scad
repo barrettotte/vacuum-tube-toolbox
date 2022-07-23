@@ -1,5 +1,7 @@
 include <../VacuumTubes/holders.scad>
 
+// openscad -o temp/demo_holders.stl examples/demo_holders.scad
+
 $fs = 0.1;
 $fn = 60;
 
