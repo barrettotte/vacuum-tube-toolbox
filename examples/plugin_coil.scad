@@ -1,5 +1,7 @@
 include <../VacuumTubes/coils.scad>
 
+// openscad -o temp/plugin_coil.stl examples/plugin_coil.scad
+
 $fs = 0.1;
 $fn = 60;
 

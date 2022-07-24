@@ -43,7 +43,7 @@ module tube_socket(
 }
 
 // 8 pin socket
-module octal_socket(
+module socket_8(
     pin_diameter, pin_offset, socket_diameter, socket_height, 
     center_diameter=0, notch_length=0
 ) {
@@ -51,7 +51,7 @@ module octal_socket(
 }
 
 // 4 pin socket
-module tetral_socket(
+module socket_4(
     pin_diameter, pin_offset, socket_diameter, socket_height, 
     center_diameter=0, notch_length=0
 ) {
