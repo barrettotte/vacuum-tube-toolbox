@@ -5,7 +5,7 @@ module plugin_coil(
     height,            // height of tube coil
     wall_thickness,    // thickness of tube
     bottom_thickness,  // thickness between bottom and inside of tube
-    pin_count,         // number of pins
+    pins,              // number of pins
     core_diameter,     // diameter of tube
     pin_diameter,      // diameter of each pin
     wire_hole_diameter // diameter of wire to pass through tube
@@ -21,9 +21,9 @@ module plugin_coil(
             cylinder(d=core_diameter-wall_thickness, h=height);
         
         // cut out pin holes
-        for (i = [0:pin_count-1]) {
-            pin_x = sin(360 * i / pin_count) * (pin_diameter * 2);
-            pin_y = cos(360 * i / pin_count) * (pin_diameter * 2);
+        for (i = [0:pins-1]) {
+            pin_x = sin(360 * i / pins) * (pin_diameter * 2);
+            pin_y = cos(360 * i / pins) * (pin_diameter * 2);
             translate([pin_x, pin_y, 0])
                 cylinder(d=pin_diameter, h=bottom_thickness);
         }
@@ -37,9 +37,9 @@ module plugin_coil(
         }
 
         // cut out bottom wire holes
-        for (i = [0:pin_count-1]) {
-            pin_x = sin(360 * i / pin_count) * (wire_hole_diameter * 5.5);
-            pin_y = cos(360 * i / pin_count) * (wire_hole_diameter * 5.5);
+        for (i = [0:pins-1]) {
+            pin_x = sin(360 * i / pins) * (wire_hole_diameter * 5.5);
+            pin_y = cos(360 * i / pins) * (wire_hole_diameter * 5.5);
             translate([pin_x, pin_y, 0])
                 cylinder(d=wire_hole_diameter, h=bottom_thickness);
         }
@@ -51,7 +51,7 @@ module plugin_coil_mounted(
     height,              //
     wall_thickness,      //
     bottom_thickness,    //
-    pin_count,           //
+    pins,                //
     core_diameter,       //
     pin_diameter,        //
     wire_hole_diameter,  //
@@ -60,7 +60,7 @@ module plugin_coil_mounted(
 ) {
     union() {
         // base tube
-        plugin_coil(height, wall_thickness, bottom_thickness, pin_count, core_diameter, pin_diameter, wire_hole_diameter);
+        plugin_coil(height, wall_thickness, bottom_thickness, pins, core_diameter, pin_diameter, wire_hole_diameter);
 
         // mount
         difference() {

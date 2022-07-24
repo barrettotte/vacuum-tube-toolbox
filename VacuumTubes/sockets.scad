@@ -2,32 +2,32 @@
 
 // Base tube socket
 module tube_socket(
-    pin_count,           // number of pins
-    pin_diameter,        // diameter of each pin
-    pin_offset,          // pin offset from center
-    socket_diameter,     // diameter of socket base
-    socket_height,       // height of socket base
+    pins,              // number of pins
+    pin_diameter,      // diameter of each pin
+    pin_offset,        // pin offset from center
+    socket_diameter,   // diameter of socket base
+    socket_height,     // height of socket base
 
-    center_diameter=0,   // diameter of center hole in socket base
-    notch_length=0       // length of center notch
+    center_diameter=0, // diameter of center hole in socket base
+    notch_length=0     // length of center notch
 ) {
-    socket_radius = socket_diameter / 2;     // radius of socket base
-    pin_radius = pin_diameter / 2;           // radius of each pin
+    socket_radius = socket_diameter / 2; // radius of socket base
+    pin_radius = pin_diameter / 2;       // radius of each pin
 
     difference() {
         // socket base
         cylinder(socket_height, socket_radius, socket_radius);
 
         // pin holes
-        for (i = [0:pin_count-1]) {
-            translate([sin(360*i/pin_count) * pin_offset, cos(360*i/pin_count) * pin_offset, 0])
+        for (i = [0:pins-1]) {
+            translate([sin(360*i/pins) * pin_offset, cos(360*i/pins) * pin_offset, 0])
                 cylinder(socket_height*2, pin_radius, pin_radius);
         }
 
         // center hole
         if (center_diameter > 0) {
-            center_radius = center_diameter / 2;     // radius of center hole
-            notch_rotation = 90 + (180 / pin_count); // notch rotation position
+            center_radius = center_diameter / 2; // radius of center hole
+            notch_rotation = 90 + (180 / pins);  // notch rotation position
 
             union() {
                 if (notch_length > 0) {
@@ -38,6 +38,37 @@ module tube_socket(
                 // hole
                 cylinder(socket_height*2, center_radius, center_radius);
             }
+        }
+    }
+}
+
+// socket with screw mounts
+module socket_mounted(
+    pins, pin_diameter, pin_offset, socket_diameter, socket_height,
+
+    center_diameter=0, notch_length=0,
+    mount_hole_diameter, // diameter of mounting holes 
+    mount_width,         // width of mounting base on each side
+    mount_height         // height of base mount
+) {
+    union() {
+        // base socket
+        tube_socket(pins, pin_diameter, pin_offset, socket_diameter,
+            socket_height, center_diameter, notch_length);
+
+        // mount
+        difference() {
+            linear_extrude(height=2)
+                resize([socket_diameter+5, (2 * mount_width) + socket_diameter])
+                    circle(d=1);
+
+            // holes
+            hole_x = (socket_diameter/2) + mount_width - (2 * mount_hole_diameter);
+
+            translate([0, hole_x, 0])
+                cylinder(d=mount_hole_diameter, h=mount_height);
+            translate([0, -hole_x, 0])
+                cylinder(d=mount_hole_diameter, h=mount_height);
         }
     }
 }

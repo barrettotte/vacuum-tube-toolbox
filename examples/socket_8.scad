@@ -1,6 +1,6 @@
 include <../VacuumTubes/sockets.scad>
 
-// openscad -o temp/socket_8.stl examples/socket_8.scad
+// openscad -o examples/socket_8.stl examples/socket_8.scad
 
 $fs = 0.1;
 $fn = 60;

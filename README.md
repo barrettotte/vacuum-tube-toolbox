@@ -36,6 +36,15 @@ This would probably be cheaper and more convenient, but I have not pursued this 
 For installing pins, print base with pin diameters around 0.05 mm smaller.
 Then, heat up pin with soldering iron and melt the pin into the base.
 
+### Sockets
+
+In each pin socket, melt and super glue either 3mm brass hollow tube or spade connectors.
+
+I still need to find a better way to do this, but this will work for now.
+Maybe I'll try to experiment with copper foil at some point.
+
+TODO: picture of socket pins
+
 ## Future Features
 
 Hoping to get to these items as other projects require them.
