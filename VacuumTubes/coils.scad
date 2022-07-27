@@ -29,7 +29,7 @@ module plugin_coil(
         }
 
         // cut out side wire holes
-        hole_height_max = height - bottom_thickness - (wire_hole_diameter * 2);
+        hole_height_max = height - bottom_thickness - wire_hole_diameter;
         for (z = [(bottom_thickness + wire_hole_diameter) : (wire_hole_diameter * 2) : hole_height_max]) {
             translate([(core_radius - wall_thickness), 0, z])
                 rotate([0,90,0])

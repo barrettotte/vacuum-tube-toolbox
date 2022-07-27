@@ -47,28 +47,36 @@ module socket_mounted(
     pins, pin_diameter, pin_offset, socket_diameter, socket_height,
 
     center_diameter=0, notch_length=0,
-    mount_hole_diameter, // diameter of mounting holes 
-    mount_width,         // width of mounting base on each side
-    mount_height         // height of base mount
+    mount_pin_diameter,   // diameter of pin at bottom (mount)
+    mount_hole_diameter,  // diameter of mounting holes 
+    mount_width,          // width of mounting base on each side
+    mount_height          // height of base mount
 ) {
-    union() {
-        // base socket
-        tube_socket(pins, pin_diameter, pin_offset, socket_diameter,
-            socket_height, center_diameter, notch_length);
+    difference() {
+        union() {
+            // base socket
+            tube_socket(pins, pin_diameter, pin_offset, socket_diameter,
+                socket_height, center_diameter, notch_length);
 
-        // mount
-        difference() {
-            linear_extrude(height=2)
-                resize([socket_diameter+5, (2 * mount_width) + socket_diameter])
-                    circle(d=1);
+            // mount
+            difference() {
+                linear_extrude(height=2)
+                    resize([socket_diameter+5, (2 * mount_width) + socket_diameter])
+                        circle(d=1);
 
-            // holes
-            hole_x = (socket_diameter/2) + mount_width - (2 * mount_hole_diameter);
+                // holes
+                hole_x = (socket_diameter/2) + mount_width - (2 * mount_hole_diameter);
 
-            translate([0, hole_x, 0])
-                cylinder(d=mount_hole_diameter, h=mount_height);
-            translate([0, -hole_x, 0])
-                cylinder(d=mount_hole_diameter, h=mount_height);
+                translate([0, hole_x, 0])
+                    cylinder(d=mount_hole_diameter, h=mount_height);
+                translate([0, -hole_x, 0])
+                    cylinder(d=mount_hole_diameter, h=mount_height);
+            }
+        }
+        // bottom pin holes - leave room to melt through
+        for (i = [0:pins-1]) {
+            translate([sin(360*i/pins) * pin_offset, cos(360*i/pins) * pin_offset, 0])
+                cylinder(d=mount_pin_diameter, h=mount_height);
         }
     }
 }
