@@ -70,11 +70,11 @@ module plugin_coil_mounted(
             cylinder(d=core_diameter, h=bottom_thickness);
 
             // holes
-            hole_x = (core_diameter/2) + mount_width - (2 * mount_hole_diameter);
+            hole_y = (core_diameter/2) + mount_width - (2 * mount_hole_diameter);
 
-            translate([0, hole_x, 0])
+            translate([0, hole_y, 0])
                 cylinder(d=mount_hole_diameter, h=bottom_thickness);
-            translate([0, -hole_x, 0])
+            translate([0, -hole_y, 0])
                 cylinder(d=mount_hole_diameter, h=bottom_thickness);
         }
     }

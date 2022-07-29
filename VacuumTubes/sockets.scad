@@ -65,11 +65,11 @@ module socket_mounted(
                         circle(d=1);
 
                 // holes
-                hole_x = (socket_diameter/2) + mount_width - (2 * mount_hole_diameter);
+                hole_y = (socket_diameter/2) + mount_width - (2 * mount_hole_diameter);
 
-                translate([0, hole_x, 0])
+                translate([0, hole_y, 0])
                     cylinder(d=mount_hole_diameter, h=mount_height);
-                translate([0, -hole_x, 0])
+                translate([0, -hole_y, 0])
                     cylinder(d=mount_hole_diameter, h=mount_height);
             }
         }
