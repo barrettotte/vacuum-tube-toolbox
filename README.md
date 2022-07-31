@@ -7,11 +7,14 @@ A work in progress OpenSCAD library (and eventually KiCad designs) to make tinke
 - Tube holders (single/multiple)
 - Plugin coils for building old radio coil tubes
 
-![docs/holder-single.jpg](docs/holder-single.jpg)
+## Images
 
-![docs/holder-single-tube.jpg](docs/holder-single-tube.jpg)
-
-![docs/plugin-coil.jpg](docs/plugin-coil.jpg)
+<img src="docs/holder-single.jpg" width="50%" height="50%"/>
+<img src="docs/holder-single-tube.jpg" width="50%" height="50%"/>
+<img src="docs/plugin-coil.jpg" width="50%" height="50%"/>
+<img src="docs/plugin-coil-wound.jpg" width="50%" height="50%"/>
+<img src="docs/socket-saver-top.jpg" width="50%" height="50%"/>
+<img src="docs/socket-saver-bottom.jpg" width="50%" height="50%"/>
 
 ## Hardware
 
@@ -36,7 +39,7 @@ This would probably be cheaper and more convenient, but I have not pursued this 
 For installing pins, print base with pin diameters around 0.05 mm smaller.
 Then, heat up pin with soldering iron and melt the pin into the base.
 
-### Socket Saver Example
+## Building a Socket Saver
 
 - Print mounted tube socket with pin diameter of 3mm and mount pin diameter of 2mm.
 - Prepare pin components.
