@@ -36,12 +36,18 @@ This would probably be cheaper and more convenient, but I have not pursued this 
 For installing pins, print base with pin diameters around 0.05 mm smaller.
 Then, heat up pin with soldering iron and melt the pin into the base.
 
-### Sockets
+### Socket Saver Example
 
-In each pin socket, melt and super glue either 3mm brass hollow tube or spade connectors.
-
-I still need to find a better way to do this, but this will work for now.
-Maybe I'll try to experiment with copper foil at some point.
+- Print mounted tube socket with pin diameter of 3mm and mount pin diameter of 2mm.
+- Prepare pin components.
+  - **pin** - 21mm segment of 1.5mm diameter magnet wire.
+  - **pin socket** - 10mm x 16mm copper foil cut out.
+- Sand ~5mm on both ends of magnet wire pin.
+- Wrap copper foil segment around pin. Then, Solder foil to pin, making sure not to add extra diameter.
+- Use multimeter to check continuity of each pin
+- Insert completed pin with pin socket into tube socket.
+  - If loose, consider super gluing or increasing diameter of pin socket.
+- Slightly insert vacuum tube and recheck continuity between tube pins and socket pins.
 
 TODO: picture of socket pins
 
