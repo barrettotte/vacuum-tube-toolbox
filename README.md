@@ -52,13 +52,10 @@ Then, heat up pin with soldering iron and melt the pin into the base.
   - If loose, consider super gluing or increasing diameter of pin socket.
 - Slightly insert vacuum tube and recheck continuity between tube pins and socket pins.
 
-TODO: picture of socket pins
-
 ## Future Features
 
 Hoping to get to these items as other projects require them.
 
-- Socket savers with spade connectors, pins, and tubing.
 - Breakout boards for common tube types (KiCad)
 - Breadboard adapters for common tube types (KiCad)
 - attempt all basic socket types listed in - https://en.wikipedia.org/wiki/Tube_socket#Summary_of_base_details
